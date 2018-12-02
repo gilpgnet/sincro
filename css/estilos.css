@@ -1,0 +1,48 @@
+/* Cuando un bloque de declaraciones se puede aplicar a varios selectores,
+ * se puede escribir una sola regla con los distintos selectores separados
+ * por comas.
+ *
+ * En este caso, los element body, input y a tienen un font sin serifas.
+ */
+body, input, a {font-family: sans-serif}
+/* El cuerpo de la página aparece sin separación con el borde de la
+ * ventana. */
+ body {margin: 0}
+/* Encabezado al inicio de la página, donde se colocan los botones y el
+ * título. */
+ header {
+  /* El contenido se muestra centrado.  */
+  text-align: center
+}
+/* El área principal de la página.*/
+main {
+  /* El ancho máximo que toma es de 600px. Si la vantana se hace más
+   * ancha de esta longitud, el ancho de main deja de crecer. */
+  max-width: 600px;
+  /* El margen arriba y abajo es 0, pero a la izquierda y derecha es auto.
+   * Los dos márgenes laterales se reparten el espacio sobrante en la
+   * ventana. Si el ancho de la ventana es más largo que el de main, este
+   * se centra. */
+  margin: 0 auto;
+  /* El relleno al rededor del contenido es el equivalente a un renglón.
+  */
+  /* padding: 1em; */
+  /* El color del fondo es gris claro. En este caso el color ayuda a que
+   * observes el funcionamiento de max-width. */
+  background-color: #f0f0f0
+}
+p {margin: 1em}
+label {
+  /* La etiqueta se comporta como un párrafo. */
+  display: block;
+  /* El tamaño de letra es pequeño. */
+  font-size: small;
+  /* El texto de la etiqueta se muestra en negritas. */
+  font-weight: bold
+}
+label>* {
+  /* Se comportan como un párrafo. */
+  display: block;
+  /* Ocupan el ancho disponible. */
+   width: 100%
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Cargando pasa...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilos.css">
+  </head>
+  <body>
+    <form name="vista" action="javascript:;">
+      <header>
+        <a accesskey="C" href="index.html">Cancelar</a>
+        <h1><output name="titulo">Cargando refrán...</output></h1>
+        <input type="submit" accesskey="G" value="Guardar">
+        <button type="button" name="elimina" accesskey="E">
+          Eliminar
+        </button>
+      </header>
+      <main role="main">
+        <p>
+          <label accesskey="T">
+            Texto
+            <textarea name="texto" required rows="2" autofocus></textarea>
+          </label>
+        </p>
+      </main>
+    </form>
+    <script type="module" src="js/ctrlRefran.js"></script>
+  </body>
+</html>
