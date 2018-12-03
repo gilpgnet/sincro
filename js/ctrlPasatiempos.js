@@ -31,13 +31,14 @@ async function sincroniza() {
   }
 }
 function muestraLista(lista) {
-  ul.innerHTML = "";
+  const contenido = "";
   for (const modelo of lista) {
-    ul.innerHTML +=
+    contenido +=
       `<li>
           <a href="pasatiempo.html?uuid=${encodeURIComponent(modelo.uuid)}">
             ${eh(modelo.nombre)}
           </a>
         </li>`;
   }
+  ul.innerHTML = contenido;
 }
