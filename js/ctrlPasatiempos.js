@@ -31,7 +31,7 @@ async function sincroniza() {
   }
 }
 function muestraLista(lista) {
-  const contenido = "";
+  let contenido = "";
   for (const modelo of lista) {
     contenido +=
       `<li>
