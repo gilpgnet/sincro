@@ -14,15 +14,17 @@
  */
 /** Se encarga de la comunicación con la base de datos. Esconde los
  * detalles de implementación y realiza tareas repetitivas. */
-import { con } from "./conecta.js";
-import { query, update } from "./util.js";
-const ENTIDAD = "Pasatiempo";
+import { query, execute } from "./util.js";
 export class DaoPasatiempo {
+  constructor(entidad, con) {
+    this.entidad = entidad;
+    this.con = con;
+  }
   /** Lista todos los objetos que no tienen borrado lógico. */
-  static async lista() {
-    return query(con, [ENTIDAD], (tx, resolve) => {
+  async lista() {
+    return query(this.con, [this.entidad], (tx, resolve) => {
       const modelos = [];
-      tx.objectStore(ENTIDAD).openCursor().onsuccess = evt => {
+      tx.objectStore(this.entidad).openCursor().onsuccess = evt => {
         const cursor = evt.target.result;
         if (cursor) {
           let modelo = cursor.value;
@@ -37,10 +39,10 @@ export class DaoPasatiempo {
     });
   }
   /** Lista todos los objetos, incluyendo los que tienen borrado lógico. */
-  static async listaTodos() {
-    return query(con, [ENTIDAD], (tx, resolve) => {
+  async listaTodos() {
+    return query(this.con, [this.entidad], (tx, resolve) => {
       const modelos = [];
-      tx.objectStore(ENTIDAD).openCursor().onsuccess = evt => {
+      tx.objectStore(this.entidad).openCursor().onsuccess = evt => {
         const cursor = evt.target.result;
         if (cursor) {
           modelos.push(cursor.value);
@@ -51,42 +53,42 @@ export class DaoPasatiempo {
       };
     });
   }
-  static async buscaId(uuid) {
-    return query(con, [ENTIDAD], (tx, resolve) =>
-      tx.objectStore(ENTIDAD).get(uuid).onsuccess =
+  async buscaId(uuid) {
+    return query(this.con, [this.entidad], (tx, resolve) =>
+      tx.objectStore(this.entidad).get(uuid).onsuccess =
       evt => resolve(evt.target.result));
   }
   /** Agrega un objeto a una entidad de la base de datos.
    * @param {*} modelo objeto que se agrega a la base de datos.
    * @returns {Promise<void>} que indica cuando termina de agregar a la
    *  base de datos. */
-  static async agrega(modelo) {
-    return execute(con, [ENTIDAD], tx => {
+  async agrega(modelo) {
+    return execute(this.con, [this.entidad], tx => {
       modelo.modificacion = Date.now();
       modelo.eliminado = 0;
-      tx.objectStore(ENTIDAD).add(modelo);
+      tx.objectStore(this.entidad).add(modelo);
     });
   }
-  static async modifica(modelo) {
-    return execute(con, [ENTIDAD], tx => {
+  async modifica(modelo) {
+    return execute(this.con, [this.entidad], tx => {
       modelo.modificacion = Date.now();
-      tx.objectStore(ENTIDAD).put(modelo);
+      tx.objectStore(this.entidad).put(modelo);
     });
   }
-  static async elimina(id) {
-    const modelo = await DaoPasatiempo.buscaId(id);
+  async elimina(id) {
+    const modelo = await this.buscaId(id);
     if (modelo !== null) {
       modelo.eliminado = 1;
-      return DaoPasatiempo.modifica(modelo);
+      return this.modifica(modelo);
     } else {
       return null;
     }
   }
   /** Borra el contenido del almacén y guarda el contenido del listado.
    * @param {Array<any>} lista nuevos datos. */
-  static async reemplaza(lista) {
-    return execute(con, [ENTIDAD], tx => {
-      const store = tx.objectStore(entidad);
+  async reemplaza(lista) {
+    return execute(this.con, [this.entidad], tx => {
+      const store = tx.objectStore(this.entidad);
       store.clear();
       for (const modelo of lista) {
         store.add(modelo);

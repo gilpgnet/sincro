@@ -1,38 +1,40 @@
 <?php
-require_once "conecta.php";
-require_once "conexion.php";
 class DaoPasatiempo {
-  public static function lista() {
-    $con->query(
-      "SELECT PAS_UUID AS uuid, PAS_NOMBRE AS nombre,
-      PAS_MODIFICACION AS modificacion, REF_ELIMINADO AS eliminado
-    FROM PASATIEMPO
-    WHERE REF_ELIMINADO = 0");
-    return $con->fetch_all();
+  private $con;
+  public function __construct($con) {
+    $this->con = $con;
   }
-  public static function buscaId($uuid) {
-    $con->query(
+  public function lista() {
+    $this->con->query(
+      "SELECT PAS_UUID AS uuid, PAS_NOMBRE AS nombre,
+      PAS_MODIFICACION AS modificacion, PAS_ELIMINADO AS eliminado
+    FROM PASATIEMPO
+    WHERE PAS_ELIMINADO = 0");
+    return $this->con->fetch_all();
+  }
+  public function buscaId($uuid) {
+    $this->con->query(
       "SELECT PAS_UUID AS uuid, PAS_NOMBRE AS nombre,
           PAS_MODIFICACION AS modificacion, PAS_ELIMINADO AS eliminado
         FROM PASATIEMPO
         WHERE PAS_UUID = ?",
       "s", $uuid);
-    if ($obj = $con->fetch_object()) {
+    if ($obj = $this->con->fetch_object()) {
       return $obj;
     } else {
       return null;
     }
   }
-  public static function agrega($modelo) {
-    $con->execute(
+  public function agrega($modelo) {
+    $this->con->execute(
       "INSERT INTO PASATIEMPO
         (PAS_UUID, PAS_NOMBRE, PAS_MODIFICACION, PAS_ELIMINADO)
       VALUES (?,?,?,?)",
       "ssii", $modelo->uuid, $modelo->nombre, $modelo->modificacion,
       $modelo->eliminado);
   }
-  public static function modifica($modelo) {
-    $con->execute(
+  public function modifica($modelo) {
+    $this->con->execute(
       "UPDATE PASATIEMPO
       SET PAS_NOMBRE = ?,
         PAS_MODIFICACION = ?,

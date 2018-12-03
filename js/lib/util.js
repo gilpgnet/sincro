@@ -36,7 +36,7 @@ export async function execute(conexionBd, entidades, funcion) {
     // Al terminar exitosamente hace resolve.
     tx.oncomplete = resolve;
     // Al terminar con error hace reject.
-    tx.onerror = reject(evt.target.error);
+    tx.onerror = evt => reject(evt.target.error);
     // Estas son las operaciones de la transacción.
     funcion(tx);
   });
@@ -47,7 +47,7 @@ export async function query(conexionBd, entidades, funcion) {
     // Inicia una transacción de solo lectura.
     const tx = conexion.transaction(entidades, "readonly");
     // Al terminar con error hace reject.
-    tx.onerror = reject(evt.target.error);
+    tx.onerror = evt => reject(evt.target.error);
     // Estas son las operaciones de la transacción.
     funcion(tx, resolve);
   });

@@ -20,7 +20,7 @@ class Conexion {
   public function bind_execute() {
     $args = func_get_args();
     for ($i = 1, $count = count($args); $i < $count; $i++) {
-        $args[$i] =& $args[$i];
+      $args[$i] = &$args[$i];
     }
     $this->ej(call_user_func_array([$this->stmt, "bind_param"], $args));
     $this->stmt->execute();
