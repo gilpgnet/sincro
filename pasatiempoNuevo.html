@@ -2,26 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Refrán Nuevo</title>
+    <title>Pasatiempo Nuevo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
-    <form name="vista" action="javascript:;">
+    <form name="vista">
       <header>
+        <h1>Pasatiempo Nuevo</h1>
         <a accesskey="C" href="index.html">Cancelar</a>
-        <h1>Refrán Nuevo</h1>
         <input type="submit" accesskey="G" value="Guardar">
       </header>
       <main role="main">
         <p>
-          <label accesskey="T">
-            Texto
-            <textarea name="texto" required rows="2" autofocus></textarea>
+          <label accesskey="N">
+            Nombre
+            <input type="text" name="nombre" required autofocus>
           </label>
         </p>
       </main>
     </form>
-    <script type="module" src="js/ctrlRefranNuevo.js"></script>
+    <script type="module" src="js/ctrlPasatiempoNuevo.js"></script>
   </body>
 </html>

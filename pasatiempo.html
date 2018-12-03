@@ -2,29 +2,27 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Cargando pasa...</title>
+    <title>Cargando pasatiempo...</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/estilos.css">
   </head>
   <body>
-    <form name="vista" action="javascript:;">
+    <form name="vista">
       <header>
+        <h1><output name="titulo">Cargando pasatiempo...</output></h1>
         <a accesskey="C" href="index.html">Cancelar</a>
-        <h1><output name="titulo">Cargando refrán...</output></h1>
         <input type="submit" accesskey="G" value="Guardar">
-        <button type="button" name="elimina" accesskey="E">
-          Eliminar
-        </button>
+        <button type="button" name="elimina" accesskey="E">Eliminar</button>
       </header>
       <main role="main">
         <p>
-          <label accesskey="T">
-            Texto
-            <textarea name="texto" required rows="2" autofocus></textarea>
+          <label accesskey="N">
+            Nombre
+            <input type="text" name="nombre" required autofocus>
           </label>
         </p>
       </main>
     </form>
-    <script type="module" src="js/ctrlRefran.js"></script>
+    <script type="module" src="js/ctrlPasatiempo.js"></script>
   </body>
 </html>
