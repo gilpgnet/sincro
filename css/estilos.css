@@ -10,7 +10,7 @@ body, input, a {font-family: sans-serif}
  body {margin: 0}
 /* Encabezado al inicio de la página, donde se colocan los botones y el
  * título. */
- header {
+header {
   /* El contenido se muestra centrado.  */
   text-align: center
 }
