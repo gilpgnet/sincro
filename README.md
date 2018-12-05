@@ -12,3 +12,5 @@ Para entender mejor el código, se recomienda estudiar primero los
 proyectos [web1](https://github.com/gilpgnet/web1),
 [web2](https://github.com/gilpgnet/web2) y
 [servicio](https://github.com/gilpgnet/servicio).
+
+Falta agregar los íconos, manifest y service worker.
