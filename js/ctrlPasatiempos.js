@@ -1,6 +1,7 @@
-import { fetchJson, muestraError, eh } from "./lib/util.js";
+import { registraServiceWorker, fetchJson, muestraError, eh } from "./lib/util.js";
 import { DaoPasatiempo } from "./lib/DaoPasatiempo.js";
 import { con } from "./lib/conecta.js";
+registraServiceWorker();
 const dao = new DaoPasatiempo("Pasatiempo", con);
 const ul = document.querySelector("ul");
 carga();

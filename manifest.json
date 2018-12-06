@@ -1,0 +1,15 @@
+{
+  "short_name": "Sincro",
+  "name": "Sincronización de Bases de Datos",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#E0E0E0",
+  "theme_color": "#9E9E9E",
+  "icons": [
+    {
+      "src": "img/sincro_2048.png",
+      "sizes": "2048x2048",
+      "type": "image/png"
+    }
+  ]
+}

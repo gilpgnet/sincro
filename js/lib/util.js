@@ -52,3 +52,15 @@ export async function query(conexionBd, entidades, funcion) {
     funcion(tx, resolve);
   });
 }
+export async function registraServiceWorker() {
+  /* Registra un service worker para instalar la aplicación en el caché del navegador. */
+  if ("serviceWorker" in navigator) {
+    try {
+      const registro = await navigator.serviceWorker.register("sw.js");
+      console.log("Service Worker registrado.");
+      console.log(registro);
+    } catch (e) {
+      muestraError(e);
+    }
+  }
+}
