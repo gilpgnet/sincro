@@ -4,17 +4,30 @@
  *
  * En este caso, los element body, input y a tienen un font sin serifas.
  */
-body, input, a {font-family: sans-serif}
+
+body,
+input,
+a {
+  font-family: sans-serif
+}
+
 /* El cuerpo de la página aparece sin separación con el borde de la
  * ventana. */
- body {margin: 0}
+
+body {
+  margin: 0
+}
+
 /* Encabezado al inicio de la página, donde se colocan los botones y el
  * título. */
+
 header {
   /* El contenido se muestra centrado.  */
   text-align: center
 }
+
 /* El área principal de la página.*/
+
 main {
   /* El ancho máximo que toma es de 600px. Si la vantana se hace más
    * ancha de esta longitud, el ancho de main deja de crecer. */
@@ -31,7 +44,11 @@ main {
    * observes el funcionamiento de max-width. */
   background-color: #f0f0f0
 }
-p {margin: 1em}
+
+p {
+  margin: 1em
+}
+
 label {
   /* La etiqueta se comporta como un párrafo. */
   display: block;
@@ -40,9 +57,10 @@ label {
   /* El texto de la etiqueta se muestra en negritas. */
   font-weight: bold
 }
+
 label>* {
   /* Se comportan como un párrafo. */
   display: block;
   /* Ocupan el ancho disponible. */
-   width: 100%
+  width: 100%
 }
