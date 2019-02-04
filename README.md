@@ -3,8 +3,10 @@ Ejemplo de sincronización de bases de datos.
 
 Puedes verlo funcionando en https://sincro.000webhostapp.com/.
 
-Para entender mejor el código, se recomienda estudiar primero los proyectos https://github.com/gilpgnet/web1,
-https://github.com/gilpgnet/web2 y https://github.com/gilpgnet/servicio.
+Para entender mejor el código, se recomienda estudiar primero los proyectos
+- https://github.com/gilpgnet/web1,
+- https://github.com/gilpgnet/web2 y
+- https://github.com/gilpgnet/servicio.
 
 Consta de dos partes:
 
