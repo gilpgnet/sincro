@@ -18,7 +18,7 @@ Consta de dos partes:
   almacenar en la base local.
 
 ## Ejecución
-Para poder ejecutarse el código, primero han de crearse la base de datos, el usuario y la tabla con el script del archivo
+Para poder ejecutar el código, primero han de crearse la base de datos, el usuario y la tabla con el script del archivo
 [sql/create.sql](/sql/create.sql).
 
 Modifica el archivo [servicio/conecta.php](/servicio/conecta.php) para usar la conexión de tu servidor.
